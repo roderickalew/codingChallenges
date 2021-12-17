@@ -1,0 +1,310 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="Main" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="960,523" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="26">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Activities.DynamicUpdate</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Runtime.InteropServices</x:String>
+      <x:String>Microsoft.VisualBasic.CompilerServices</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="16">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <sap:WorkflowViewStateService.ViewState>
+    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+      <x:Boolean x:Key="ShouldCollapseAll">True</x:Boolean>
+    </scg:Dictionary>
+  </sap:WorkflowViewStateService.ViewState>
+  <Sequence sap:VirtualizedContainerService.HintSize="304,625" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:String" Name="palToCheck" />
+      <Variable x:TypeArguments="x:Int32" Name="evenOrOdd" />
+      <Variable x:TypeArguments="x:Int32" Name="loopControl" />
+      <Variable x:TypeArguments="x:Int32" Name="counter" />
+      <Variable x:TypeArguments="x:Int32" Name="notMatchPair" />
+      <Variable x:TypeArguments="x:Double" Name="midPoint" />
+      <Variable x:TypeArguments="x:String" Name="stFirstHalf" />
+      <Variable x:TypeArguments="x:String" Name="stSecHalf" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:InputDialog Options="{x:Null}" OptionsString="{x:Null}" DisplayName="Input Dialog" sap:VirtualizedContainerService.HintSize="262,51" sap2010:WorkflowViewState.IdRef="InputDialog_1" IsPassword="False" Label="Enter String to be checked" Title="Palindrome Calculator Input">
+      <ui:InputDialog.Result>
+        <OutArgument x:TypeArguments="x:String">[palToCheck]</OutArgument>
+      </ui:InputDialog.Result>
+    </ui:InputDialog>
+    <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_1">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:Int32">[evenOrOdd]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:Int32">[palToCheck.Length]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_6">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:Int32">[loopControl]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:Int32">0</InArgument>
+      </Assign.Value>
+    </Assign>
+    <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_10">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:Int32">[notMatchPair]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:Int32">0</InArgument>
+      </Assign.Value>
+    </Assign>
+    <If Condition="[(evenOrOdd Mod 2) = 0]" sap:VirtualizedContainerService.HintSize="262,51" sap2010:WorkflowViewState.IdRef="If_1">
+      <If.Then>
+        <Sequence sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_15">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <Assign sap:VirtualizedContainerService.HintSize="9459,60" sap2010:WorkflowViewState.IdRef="Assign_20">
+            <Assign.To>
+              <OutArgument x:TypeArguments="x:Double">[midPoint]</OutArgument>
+            </Assign.To>
+            <Assign.Value>
+              <InArgument x:TypeArguments="x:Double">[evenOrOdd/2]</InArgument>
+            </Assign.Value>
+          </Assign>
+          <Assign sap:VirtualizedContainerService.HintSize="9459,60" sap2010:WorkflowViewState.IdRef="Assign_21">
+            <Assign.To>
+              <OutArgument x:TypeArguments="x:Int32">[counter]</OutArgument>
+            </Assign.To>
+            <Assign.Value>
+              <InArgument x:TypeArguments="x:Int32">0</InArgument>
+            </Assign.Value>
+          </Assign>
+          <ui:InterruptibleWhile Condition="[loopControl &lt; midPoint]" DisplayName="While" sap:VirtualizedContainerService.HintSize="9459,1276" sap2010:WorkflowViewState.IdRef="InterruptibleWhile_3">
+            <ui:InterruptibleWhile.Body>
+              <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="9423,1109" sap2010:WorkflowViewState.IdRef="Sequence_14">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <Assign sap:VirtualizedContainerService.HintSize="9381,60" sap2010:WorkflowViewState.IdRef="Assign_22">
+                  <Assign.To>
+                    <OutArgument x:TypeArguments="x:String">[stFirstHalf]</OutArgument>
+                  </Assign.To>
+                  <Assign.Value>
+                    <InArgument x:TypeArguments="x:String" xml:space="preserve">[palToCheck.Substring(counter, 1  )]</InArgument>
+                  </Assign.Value>
+                </Assign>
+                <Assign sap:VirtualizedContainerService.HintSize="9381,60" sap2010:WorkflowViewState.IdRef="Assign_23">
+                  <Assign.To>
+                    <OutArgument x:TypeArguments="x:String">[stSecHalf]</OutArgument>
+                  </Assign.To>
+                  <Assign.Value>
+                    <InArgument x:TypeArguments="x:String">[palToCheck.Substring((evenOrOdd - counter - 1) , 1)]</InArgument>
+                  </Assign.Value>
+                </Assign>
+                <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="9381,62" sap2010:WorkflowViewState.IdRef="WriteLine_5" Text="[stFirstHalf]" />
+                <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="9381,62" sap2010:WorkflowViewState.IdRef="WriteLine_6" Text="[stSecHalf]" />
+                <If Condition="[stFirstHalf.ToString = stSecHalf.ToString]" sap:VirtualizedContainerService.HintSize="9381,311" sap2010:WorkflowViewState.IdRef="If_4">
+                  <If.Then>
+                    <Sequence sap:VirtualizedContainerService.HintSize="4668,84" sap2010:WorkflowViewState.IdRef="Sequence_12">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                    </Sequence>
+                  </If.Then>
+                  <If.Else>
+                    <Sequence sap:VirtualizedContainerService.HintSize="4668,152" sap2010:WorkflowViewState.IdRef="Sequence_13">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <Assign sap:VirtualizedContainerService.HintSize="4626,60" sap2010:WorkflowViewState.IdRef="Assign_24">
+                        <Assign.To>
+                          <OutArgument x:TypeArguments="x:Int32">[notMatchPair]</OutArgument>
+                        </Assign.To>
+                        <Assign.Value>
+                          <InArgument x:TypeArguments="x:Int32">[notMatchPair + 1]</InArgument>
+                        </Assign.Value>
+                      </Assign>
+                    </Sequence>
+                  </If.Else>
+                </If>
+                <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="9381,62" sap2010:WorkflowViewState.IdRef="WriteLine_7" Text="[notMatchPair.ToString]" />
+                <Assign sap:VirtualizedContainerService.HintSize="9381,60" sap2010:WorkflowViewState.IdRef="Assign_25">
+                  <Assign.To>
+                    <OutArgument x:TypeArguments="x:Int32">[counter]</OutArgument>
+                  </Assign.To>
+                  <Assign.Value>
+                    <InArgument x:TypeArguments="x:Int32">[counter + 1]</InArgument>
+                  </Assign.Value>
+                </Assign>
+                <Assign sap:VirtualizedContainerService.HintSize="9381,60" sap2010:WorkflowViewState.IdRef="Assign_26">
+                  <Assign.To>
+                    <OutArgument x:TypeArguments="x:Int32">[loopControl]</OutArgument>
+                  </Assign.To>
+                  <Assign.Value>
+                    <InArgument x:TypeArguments="x:Int32">[loopControl + 1]</InArgument>
+                  </Assign.Value>
+                </Assign>
+              </Sequence>
+            </ui:InterruptibleWhile.Body>
+          </ui:InterruptibleWhile>
+        </Sequence>
+      </If.Then>
+      <If.Else>
+        <Sequence sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_3">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <Assign sap:VirtualizedContainerService.HintSize="9459,60" sap2010:WorkflowViewState.IdRef="Assign_13">
+            <Assign.To>
+              <OutArgument x:TypeArguments="x:Double">[midPoint]</OutArgument>
+            </Assign.To>
+            <Assign.Value>
+              <InArgument x:TypeArguments="x:Double">[evenOrOdd/2]</InArgument>
+            </Assign.Value>
+          </Assign>
+          <Assign sap:VirtualizedContainerService.HintSize="9459,60" sap2010:WorkflowViewState.IdRef="Assign_14">
+            <Assign.To>
+              <OutArgument x:TypeArguments="x:Int32">[counter]</OutArgument>
+            </Assign.To>
+            <Assign.Value>
+              <InArgument x:TypeArguments="x:Int32">0</InArgument>
+            </Assign.Value>
+          </Assign>
+          <ui:InterruptibleWhile Condition="[loopControl &lt; midPoint]" DisplayName="While" sap:VirtualizedContainerService.HintSize="9459,1276" sap2010:WorkflowViewState.IdRef="InterruptibleWhile_2">
+            <ui:InterruptibleWhile.Body>
+              <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="9423,1109" sap2010:WorkflowViewState.IdRef="Sequence_11">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <Assign sap:VirtualizedContainerService.HintSize="9381,60" sap2010:WorkflowViewState.IdRef="Assign_15">
+                  <Assign.To>
+                    <OutArgument x:TypeArguments="x:String">[stFirstHalf]</OutArgument>
+                  </Assign.To>
+                  <Assign.Value>
+                    <InArgument x:TypeArguments="x:String" xml:space="preserve">[palToCheck.Substring(counter, 1  )]</InArgument>
+                  </Assign.Value>
+                </Assign>
+                <Assign sap:VirtualizedContainerService.HintSize="9381,60" sap2010:WorkflowViewState.IdRef="Assign_16">
+                  <Assign.To>
+                    <OutArgument x:TypeArguments="x:String">[stSecHalf]</OutArgument>
+                  </Assign.To>
+                  <Assign.Value>
+                    <InArgument x:TypeArguments="x:String">[palToCheck.Substring((evenOrOdd - counter - 1) , 1)]</InArgument>
+                  </Assign.Value>
+                </Assign>
+                <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="9381,62" sap2010:WorkflowViewState.IdRef="WriteLine_3" Text="[stFirstHalf]" />
+                <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="9381,62" sap2010:WorkflowViewState.IdRef="WriteLine_4" Text="[stSecHalf]" />
+                <If Condition="[stFirstHalf.ToString = stSecHalf.ToString]" sap:VirtualizedContainerService.HintSize="9381,311" sap2010:WorkflowViewState.IdRef="If_3">
+                  <If.Then>
+                    <Sequence sap:VirtualizedContainerService.HintSize="4668,84" sap2010:WorkflowViewState.IdRef="Sequence_9">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                    </Sequence>
+                  </If.Then>
+                  <If.Else>
+                    <Sequence sap:VirtualizedContainerService.HintSize="4668,152" sap2010:WorkflowViewState.IdRef="Sequence_10">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <Assign sap:VirtualizedContainerService.HintSize="4626,60" sap2010:WorkflowViewState.IdRef="Assign_17">
+                        <Assign.To>
+                          <OutArgument x:TypeArguments="x:Int32">[notMatchPair]</OutArgument>
+                        </Assign.To>
+                        <Assign.Value>
+                          <InArgument x:TypeArguments="x:Int32">[notMatchPair + 1]</InArgument>
+                        </Assign.Value>
+                      </Assign>
+                    </Sequence>
+                  </If.Else>
+                </If>
+                <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="9381,62" sap2010:WorkflowViewState.IdRef="WriteLine_2" Text="[notMatchPair.ToString]" />
+                <Assign sap:VirtualizedContainerService.HintSize="9381,60" sap2010:WorkflowViewState.IdRef="Assign_18">
+                  <Assign.To>
+                    <OutArgument x:TypeArguments="x:Int32">[counter]</OutArgument>
+                  </Assign.To>
+                  <Assign.Value>
+                    <InArgument x:TypeArguments="x:Int32">[counter + 1]</InArgument>
+                  </Assign.Value>
+                </Assign>
+                <Assign sap:VirtualizedContainerService.HintSize="9381,60" sap2010:WorkflowViewState.IdRef="Assign_19">
+                  <Assign.To>
+                    <OutArgument x:TypeArguments="x:Int32">[loopControl]</OutArgument>
+                  </Assign.To>
+                  <Assign.Value>
+                    <InArgument x:TypeArguments="x:Int32">[loopControl + 1]</InArgument>
+                  </Assign.Value>
+                </Assign>
+              </Sequence>
+            </ui:InterruptibleWhile.Body>
+          </ui:InterruptibleWhile>
+        </Sequence>
+      </If.Else>
+    </If>
+    <Switch x:TypeArguments="x:Int32" DisplayName="Switch" Expression="[notMatchPair]" sap:VirtualizedContainerService.HintSize="262,51" sap2010:WorkflowViewState.IdRef="Switch`1_1">
+      <Switch.Default>
+        <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" AutoCloseAfter="00:00:00" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="334,84" sap2010:WorkflowViewState.IdRef="MessageBox_3" Text="[&quot;String is not Almost Palindrome&quot;]" />
+      </Switch.Default>
+      <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" x:Key="0" AutoCloseAfter="00:00:00" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="MessageBox_1" Text="[&quot;String is a Palindrome&quot;]" />
+      <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" x:Key="1" AutoCloseAfter="00:00:00" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="MessageBox_2" Text="[&quot;String is an almost Palindrome!&quot;]" />
+    </Switch>
+  </Sequence>
+</Activity>
